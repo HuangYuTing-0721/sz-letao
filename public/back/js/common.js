@@ -1,3 +1,17 @@
+//判断用户是否登录
+// 非登录页发送ajax
+if(location.href.indexOf('login.html') == -1){
+    $.ajax({
+        url:" /employee/checkRootLogin",
+        success:function(data){
+            //console.log(data);
+            if(data.error == 400){
+                location.href = 'login.html';
+            }
+        }
+    })
+}
+
 // 进度条
 NProgress.configure({ showSpinner : false});
 $(document).ajaxStart(function(){
