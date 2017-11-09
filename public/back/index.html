@@ -1,10 +1,84 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>乐淘管理系统-首页</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css"/>
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
 </head>
 <body>
-    <h1>首页</h1>
+
+<div class="sidebar">
+    <div class="top">
+        <a href="index.html">HYT</a>
+    </div>
+    <div class="username">
+        <img src="./images/default.png" alt=""/>
+        <p>超级管理员</p>
+    </div>
+    <div class="nav">
+        <lu>
+            <li>
+                <a href="user.html" >
+                    <i class="glyphicon glyphicon-user"></i>
+                    用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i>
+                    分类管理
+                </a>
+                <div class="classify" style="display: none">
+                    <a href="first.html" >
+                        一级分类
+                    </a>
+                    <a href="second.html">
+                        二级分类
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="product.html">
+                    <i class="glyphicon glyphicon-tags"></i>
+                    商品管理
+                </a>
+            </li>
+        </lu>
+    </div>
+</div>
+<div class="main">
+    <div class="topbar">
+        <a class="pull-left" href="javaScript:;">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </a>
+        <a class="pull-right" href="javaScript:;">
+            <i class="glyphicon glyphicon-log-out"></i>
+        </a>
+    </div>
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li><a href="#">系统管理</a></li>
+            <li class="active">首页</li>
+        </ol>
+        <div class="content">
+            <div class="pic_left pull-left">
+                1
+            </div>
+            <div class="pic_right pull-right">
+                2
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
