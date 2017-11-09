@@ -29,6 +29,9 @@ a:hover,a:active,a:focus{
     background-color: #222d32;
     position: absolute;
 }
+.sidebar.now{
+    left: -180px;
+}
 .sidebar .top{
     width: 180px;
     height: 50px;
@@ -83,6 +86,9 @@ a:hover,a:active,a:focus{
 
 .main {
     margin-left: 180px;
+}
+.main.now{
+    margin-left:0;
 }
 .main .topbar{
     height: 50px;

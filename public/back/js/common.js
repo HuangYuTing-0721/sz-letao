@@ -6,7 +6,7 @@ $(document).ajaxStart(function(){
 $(document).ajaxStop(function(){
     setTimeout(function(){
         NProgress.done();
-    },500);
+    },1000);
 });
 
 //二级菜单显示隐藏
@@ -17,3 +17,24 @@ $(".classify").prev().on("click", function () {
     $(this).next().slideToggle();
 });
 
+// 侧边栏显示隐藏
+$('.btn_menu').on("click",function(){
+    $('.sidebar').toggleClass('now');
+    $('.main').toggleClass('now');
+})
+
+// 点击退出框显示
+$('.btn_logout').on("click",function(){
+    $('#myModal').modal('show');
+    $('.sure').off().on("click",function(){
+        $.ajax({
+            url:'/employee/employeeLogout',
+            success:function(data){
+                //console.log(data);
+                if(data.success === true){
+                    location.href='login.html';
+                }
+            }
+        })
+    })
+})
