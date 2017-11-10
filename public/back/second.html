@@ -66,11 +66,31 @@
             <li class="active">二级分类</li>
         </ol>
         <div class="content">
-
+            <!--添加按钮-->
+            <button type="button" class="btn btn-default mb_20 btn-add">添加分类</button>
+            <!--表单-->
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td width="10%">序号</td>
+                    <td width="30%">一级分类名称</td>
+                    <td width="30%">二级分类名称</td>
+                    <td width="30%">二级分类LOGO</td>
+                </tr>
+                </thead>
+                <tbody>
+                <!--挖坑-->
+                </tbody>
+            </table>
+            <!-- 分页页面结构-->
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
 </div>
-<div class="modal fade bs-example-modal-sm" tabindex="-1" id="myModal" role="dialog">
+<!--退出-->
+<div class="modal fade" tabindex="-1" id="myModal">
     <div class="modal-dialog  modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,12 +107,70 @@
         </div>
     </div>
 </div>
+<!--添加分类-->
+<div class="modal fade " tabindex="-1" id="secondModal" >
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="dropdow-text">请选择一级分类</span>
+                                <span class="caret"></span>
+                                <input type="hidden" id="categoryId" name="categoryId"/>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!--挖坑-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" autocomplete="off" class="form-control" name="categoryName" placeholder="请输入一级分类">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" form="form" class="btn btn-primary btn_edit">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--模板-->
+<script type="text/html" id="second-tmp">
+    {{each rows v i}}
+    <tr>
+        <td>{{(page-1)*size +i +1}}</td>
+        <td>{{v.categoryName}}</td>
+        <td>{{v.brandName}}</td>
+        <td>
+            <img src="{{v.brandLogo?v.brandLogo:'images/none.png'}}" width="50" height="50" alt=""/>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<!--下拉菜单-->
+<script type="text/html" id="dropdown-tmp">
+    {{each rows v i}}
+        <li><a href="javascript:;" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+    {{/each}}
+</script>
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="lib/echarts/echarts.min.js"></script>
+<script src="lib/template/template-web.js"></script>
+<!--分页插件-->
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="js/second.js"></script>
 <script src="js/common.js"></script>
 </body>
 </html>

@@ -36,8 +36,10 @@ $(function(){
     // 禁用启用功能
     $("tbody").on("click",".btn",function(){
         $("#userModal").modal("show");
-        var id = $("this").parent().data("id");
+        var id = $(this).parent().data("id");
+        //console.log(id);
         var isDelete = $(this).hasClass("btn-danger")?0:1;
+        //console.log(isDelete);
         $(".btn_edit").off().on("click",function(){
             $.ajax({
                 type:"POST",
@@ -47,9 +49,10 @@ $(function(){
                     isDelete:isDelete
                 },
                 success:function(data){
-                    console.log(data);
+                    //console.log(data);
                     if(data.success){
                         $("#userModal").modal("hide");
+                        //console.log("hjji");
                         render();
                     }
                 }
