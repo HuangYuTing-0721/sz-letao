@@ -10,7 +10,13 @@ body,html{
 a:hover,a:active,a:focus{
     text-decoration: none;
 }
-
+button {
+    outline: none;
+}
+.table.table-bordered td{
+    text-align: center;
+    vertical-align: middle;
+}
 /*--------------------------------------------------------*/
 .login_bg {
     background-color: #222d32;
