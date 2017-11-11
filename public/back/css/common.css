@@ -114,3 +114,16 @@ button {
     width: 45%;
     height: 400px;
 }
+
+.upload-box {
+    width: 85px;
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+}
+.upload-box #fileupload{
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;
+}

@@ -42,7 +42,7 @@ $(function(){
                 pageSize:100
             },
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 $(".dropdown-menu").html(template("dropdown-tmp",data));
             }
         })
@@ -53,5 +53,80 @@ $(function(){
         $(".dropdow-text").text($(this).text());
         /*修改input的value,获取到自定义属性id*/
         $("#categoryId").val($(this).data("id"));
+        /*点击了手动校验成功*/
+        $form.data("bootstrapValidator").updateStatus("categoryId", "VALID");
+
+    });
+
+    /*初始化上传文件*/
+    $('#fileupload').fileupload({
+        dataType: "json",
+        done: function (e, data) {
+           //console.log("12313");
+           //console.log(data);
+            //console.log(data.result.picAddr);
+            $(".img-box img").attr("src",data.result.picAddr);
+            $("#boandLogo").val(data.result.picAddr);
+
+            $form.data("bootstrapValidator").updateStatus("brandLogo","VALID");
+        }
+    });
+    /*校验表单*/
+    var $form = $("form");
+    $form.bootstrapValidator({
+        /*设置不校验的内容,所有都校验*/
+        excluded:[],
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields:{
+            categoryId:{
+                validators:{
+                    notEmpty:{
+                        message :"请选择一级分类"
+                    }
+                }
+            },
+            brandName:{
+                validators:{
+                    notEmpty:{
+                        message :"请选择二级分类名称"
+                    }
+                }
+            },
+            brandLogo:{
+                validators:{
+                    notEmpty:{
+                        message :"请上传图片"
+                    }
+                }
+            }
+        }
+    });
+
+    //注册表单校验成功事件
+    $form.on("success.form.bv",function(e){
+        e.preventDefault();
+
+        $.ajax({
+            url:"/category/addSecondCategory",
+            type:"post",
+            data:$form.serialize(),
+            success:function(data){
+                $("#secondModal").modal("hide");
+                currentPage = 1;
+                render();
+
+                // 清除内容
+                $form[0].reset();
+                $form.data("bootstrapValidator").resetForm();
+                $("dropdow-text").text("请选择一级分类");
+                $(".img-box img").attr("src","images/none.png");
+                $("#categoryId").val("");
+                $("#brandLogo").val();
+            }
+        })
     })
 })

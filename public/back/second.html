@@ -130,7 +130,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" autocomplete="off" class="form-control" name="categoryName" placeholder="请输入一级分类">
+                        <input type="text" autocomplete="off" class="form-control" name="brandName" placeholder="请输入二级分类名称">
+                    </div>
+                    <div class="form-group">
+                        <div class="upload-box">
+                            <button class="btn btn-default ">上传图片</button>
+                            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="img-box">
+                            <img src="images/none.png" width="100" height="100" alt=""/>
+                            <input type="hidden" name="brandLogo" id="boandLogo"/>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -163,6 +175,8 @@
 </script>
 
 <script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
