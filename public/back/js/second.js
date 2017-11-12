@@ -129,4 +129,14 @@ $(function(){
             }
         })
     })
+
+    // 点击取消 清除模态框的内容和校验
+    $(".cancel").on("click",function(){
+        $form[0].reset();
+        $form.data("bootstrapValidator").resetForm();
+        $("dropdow-text").text("请选择一级分类");
+        $(".img-box img").attr("src","images/none.png");
+        $("#categoryId").val("");
+        $("#brandLogo").val();
+    })
 })

@@ -84,4 +84,10 @@ $(function(){
         })
 
     })
+
+    /*点击取消清除内容和表单*/
+    $(".cancel").on("click",function(){
+        $form[0].reset();
+        $form.data("bootstrapValidator").resetForm();
+    })
 })
