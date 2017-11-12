@@ -35,6 +35,7 @@ $(".classify").prev().on("click", function () {
 $('.btn_menu').on("click",function(){
     $('.sidebar').toggleClass('now');
     $('.main').toggleClass('now');
+    $('.topbar').toggleClass('now');
 })
 
 // 点击退出框显示
