@@ -122,7 +122,7 @@ $(function(){
                 // 清除内容
                 $form[0].reset();
                 $form.data("bootstrapValidator").resetForm();
-                $("dropdow-text").text("请选择一级分类");
+                $(".dropdow-text").text("请选择一级分类");
                 $(".img-box img").attr("src","images/none.png");
                 $("#categoryId").val("");
                 $("#brandLogo").val();
@@ -134,7 +134,7 @@ $(function(){
     $(".cancel").on("click",function(){
         $form[0].reset();
         $form.data("bootstrapValidator").resetForm();
-        $("dropdow-text").text("请选择一级分类");
+        $(".dropdow-text").text("请选择一级分类");
         $(".img-box img").attr("src","images/none.png");
         $("#categoryId").val("");
         $("#brandLogo").val();
